@@ -107,7 +107,7 @@ Sorts the list using the quicksort algorithm.
 # public void removeDuplicates()
 Removes duplicate elements from the list.
 
-# public IntegerArrayList merge(IntegerArrayList other)
+# public void merge(IntegerArrayList other)
 Merges the current list with another IntegerArrayList.
 
 # public int[] getMaxHeap()
