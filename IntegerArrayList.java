@@ -32,6 +32,15 @@ public class IntegerArrayList {
         data = Arrays.copyOf(data, newCapacity);
         capacity = newCapacity;
     }
+    
+    private void grow(int minCapacity) {
+        int newCapacity = capacity;
+        while (newCapacity < minCapacity) {
+            newCapacity = newCapacity * GROWTH_FACTOR + 1;
+        }
+        data = Arrays.copyOf(data, newCapacity);
+        capacity = newCapacity;
+    }
 
     public int get(int index) {
         checkIndex(index);
@@ -262,23 +271,16 @@ public class IntegerArrayList {
         size = j;
     }
 
-    public IntegerArrayList merge(IntegerArrayList other) {
-        IntegerArrayList merged = new IntegerArrayList(size + other.size);
-        int i = 0, j = 0;
-        while (i < size && j < other.size) {
-            if (data[i] < other.get(j)) {
-                merged.add(data[i++]);
-            } else {
-                merged.add(other.get(j++));
-            }
+    public void merge(IntegerArrayList other) {
+        if (size + other.size() > capacity) {
+            grow(size + other.size());
         }
-        while (i < size) {
-            merged.add(data[i++]);
+
+        // Copy the elements from the other IntegerArrayList
+        for (int i = 0; i < other.size(); i++) {
+            add(other.get(i));
         }
-        while (j < other.size) {
-            merged.add(other.get(j++));
-        }
-        return merged;
+
     }
 
     public int[] getMaxHeap() {
