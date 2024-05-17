@@ -3,9 +3,9 @@ Introducing IntegerArrayList – a powerful, custom implementation of an integer
 
 # Remove Duplicate:
 Removes all duplicate elements, ensuring uniqueness.
-# Conatains Smaller Between:
+# Contains Smaller Between:
 Checks for elements smaller than x within the range [a, b].
-# Conatains Larger Between:
+# Contains Larger Between:
 Checks for elements larger than x within the range [a, b].
 # Trim to size:
 Reduces the list's capacity to its current size, optimizing memory use
